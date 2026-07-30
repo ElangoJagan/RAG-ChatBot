@@ -1,4 +1,4 @@
-from rank_bm25 import BM250kapi
+from rank_bm25 import BM25Okapi
 import numpy as np 
 
 
@@ -11,7 +11,7 @@ class HybridRetriever:
         self.bm25_weight = bm25_weight
         
         tokenized_corpus = [c.text.lower().split() for c in chunks]
-        self.bm25 = BM250kapi(tokenized_corpus)
+        self.bm25 = BM25Okapi(tokenized_corpus)
     
     def retrieve(self, query, top_k = 5, candidate_pool=15):
         #1.vector search
